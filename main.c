@@ -8,34 +8,32 @@
 
 #include <stdio.h>
 
-void func(int j)
-{
-    int i=1, n1=0, n2=1;
-    
-    while(i<=j)
-    {
-        if(i%2!=0)
-        {
-            printf("%d ", n1);
-            n1+=n2;
-        }
-        else
-        {
-            printf("%d ", n2);
-            n2+=n1;
-        }
-        i++;
-    }
-}
-
 int main(void)
 {
-    int j;
+    int num1, num2;
     
-    printf("출력할 피보나치 수열 개수: ");
-    scanf("%d", &j);
+    printf("two whloe number: ");
+    scanf("%d %d", &num1, &num2);
     
-    func(j);
+    if(num1>=num2)
+    {
+        for(; num1>=num2; num2++)
+        {
+            int i=1;
+            for(i=1; i<=9; i++)
+                printf("%dX%d=%d \n", num2, i, num2*i);
+        }
+    }
+    
+    else
+    {
+        for(; num1<=num2; num1++)
+        {
+            int i=1;
+            for(i=1; i<=9; i++)
+                printf("%dX%d=%d \n", num1, i, num1*i);
+        }
+    }
     
     return 0;
 }
