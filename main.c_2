@@ -1,0 +1,48 @@
+//
+//  main.c
+//  Re_Start
+//
+//  Created by super on 08/12/2019.
+//  Copyright © 2019 IDE. All rights reserved.
+//
+
+#include <stdio.h>
+
+void gcdfunc(int num1, int num2)
+{
+    int gcd;
+    
+    if(num1>=num2)
+    {
+        for(gcd=num2; gcd>=1; gcd--)
+        {
+            if(num1%gcd==0 && num2%gcd==0)
+            {
+                printf("GCD=%d \n", gcd);
+                break;
+            }
+        }
+    }
+    
+    else
+    {
+        int i=num1, j=num2;
+        
+        num1=j;
+        num2=i;
+        
+        gcdfunc(num1, num2);
+    }
+}
+
+int main(void)
+{
+    int num1, num2;
+    
+    printf("two whole number: ");
+    scanf("%d %d", &num1, &num2);
+    
+    gcdfunc(num1, num2);
+    
+    return 0;
+}
