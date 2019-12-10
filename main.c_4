@@ -1,0 +1,39 @@
+//
+//  main.c
+//  Re_Start
+//
+//  Created by super on 08/12/2019.
+//  Copyright © 2019 IDE. All rights reserved.
+//
+
+#include <stdio.h>
+
+int main(void)
+{
+    int money, p1, p2, p3, n1=0, n2=0, n3=0;
+    
+    printf("소지금: ");
+    scanf("%d", &money);
+    
+    printf("물품의 가격 세 개(순서대로): ");
+    scanf("%d %d %d", &p1, &p2, &p3);
+    
+    int m1=money/p1, m2=money/p2, m3=money/p3;
+    
+    for(; m1>=n1; n1++)
+    {
+        n2=0;
+        n3=0;
+        for(; m2>=n2; n2++)
+        {
+            n3=0;
+            for(; m3>=n3; n3++)
+            {
+                if(n1*p1+n2*p2+n3*p3==money)
+                    printf("n1: %d, n2: %d, n3: %d \n", n1, n2, n3);
+            }
+        }
+    }
+    
+    return 0;
+}
