@@ -1,0 +1,52 @@
+//
+//  main.c
+//  Re_Start
+//
+//  Created by super on 08/12/2019.
+//  Copyright © 2019 IDE. All rights reserved.
+//
+
+#include <stdio.h>
+
+int prime(int num)
+{
+    int a=2, d;
+    
+    if(num==2)
+        return d=1;
+    
+    for(; a<=num-1; a++)
+    {
+        if(num%a==0)
+        {
+            d=0;
+            break;
+        }
+        else
+        {
+            d=1;
+            continue;
+        }
+    }
+    
+    return d;
+}
+
+int main(void)
+{
+    int i, j=1, n=2;
+    
+    printf("소수의 개수: ");
+    scanf("%d", &i);
+    
+    for(; i>=j; n++)
+    {
+        if(prime(n)==1)
+        {
+            printf("%d ", n);
+            j++;
+        }
+    }
+    
+    return 0;
+}
