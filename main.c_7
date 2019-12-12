@@ -1,0 +1,42 @@
+//
+//  main.c
+//  Re_Start
+//
+//  Created by super on 08/12/2019.
+//  Copyright © 2019 IDE. All rights reserved.
+//
+
+#include <stdio.h>
+
+int main(void)
+{
+    int arr[10], num;
+    int i=0;
+    
+    printf("총 10개의 정수 입력 \n");
+    
+    for(int a=0, b=0; i<10; i++)
+    {
+        printf("입력 %d: ", i+1);
+        scanf("%d", &num);
+        {
+            if(num%2!=0)
+            {
+                arr[a]=num;
+                a++;
+            }
+            else
+            {
+                arr[9-b]=num;
+                b++;
+            }
+        }
+    }
+    
+    printf("result: ");
+    for(i=0; i<10; i++)
+        printf("%d ", arr[i]);
+    printf(" \n");
+    
+    return 0;
+}
