@@ -1,0 +1,63 @@
+//
+//  main.c
+//  Re_Start
+//
+//  Created by super on 08/12/2019.
+//  Copyright © 2019 IDE. All rights reserved.
+//
+
+#include <stdio.h>
+
+void denf(int *arr)
+{
+    int i=0;
+    
+    printf("even num of array: ");
+    
+    for(; i<10; i++)
+    {
+        if(arr[i]%2==0)
+            printf("%d ", arr[i]);
+        else
+            continue;
+    }
+    printf(" \n");
+}
+
+void donf(int *arr)
+{
+    int i=0;
+    
+    printf("odd num of array: ");
+    
+    for(; i<10; i++)
+    {
+        if(arr[i]%2!=0)
+            printf("%d ", arr[i]);
+        else
+            continue;
+    }
+    printf(" \n");
+}
+
+
+
+
+int main(void)
+{
+    printf("총 10개의 정수 입력 \n");
+    
+    int arr[10];
+    int i=0;
+    
+    for(; i<10; i++)
+    {
+        printf("입력 %d: ", i+1);
+        scanf("%d", &arr[i]);
+    }
+    
+    denf(arr);
+    donf(arr);
+    
+    return 0;
+}
