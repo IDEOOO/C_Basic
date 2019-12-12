@@ -1,0 +1,50 @@
+//
+//  main.c
+//  Re_Start
+//
+//  Created by super on 08/12/2019.
+//  Copyright © 2019 IDE. All rights reserved.
+//
+
+#include <stdio.h>
+
+int palind(char *arr)
+{
+    int i=0, d;
+    int arlen;
+    
+    for(; arr[i]!=0; )
+        i++;
+    arlen=i;
+    
+    for(i=0; arlen/2>i; i++)
+    {
+        if(arr[i]==arr[arlen-1-i])
+        {
+            return d=1;
+            continue;
+        }
+        else
+        {
+            return d=0;
+            break;
+        }
+    }
+    
+    return d;
+}
+
+int main(void)
+{
+    char arr[100];
+    
+    printf("문자열 입력: ");
+    scanf("%s", arr);
+    
+    if(palind(arr)==1)
+        printf("O \n");
+    else
+        printf("X \n");
+    
+    return 0;
+}
