@@ -1,0 +1,28 @@
+//
+//  main.c
+//  Re_Start
+//
+//  Created by super on 08/12/2019.
+//  Copyright © 2019 IDE. All rights reserved.
+//
+
+#include <stdio.h>
+
+void squareref(int *ptr)
+{
+    *ptr*=*ptr;
+}
+
+int main(void)
+{
+    int num;
+    
+    printf("num: ");
+    scanf("%d", &num);
+    
+    squareref(&num);
+    
+    printf("result: %d \n", num);
+    
+    return 0;
+}
