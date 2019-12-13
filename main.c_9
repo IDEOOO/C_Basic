@@ -1,0 +1,51 @@
+//
+//  main.c
+//  Re_Start
+//
+//  Created by super on 08/12/2019.
+//  Copyright © 2019 IDE. All rights reserved.
+//
+
+#include <stdio.h>
+
+void dessort(int *arr)
+{
+    int i=0, a=6, op;
+    
+    for(; a>0; a--)
+    {
+        for(i=0; i<a; i++)
+        {
+            if(arr[i]<arr[i+1])
+            {
+                op=arr[i];
+                arr[i]=arr[i+1];
+                arr[i+1]=op;
+            }
+            else
+                continue;
+        }
+    }
+    
+    printf("result: ");
+    for(i=0; i<7; i++)
+        printf("%d ", arr[i]);
+    printf(" \n");
+}
+
+int main(void)
+{
+    int arr[7];
+    int i=0;
+    
+    printf("총 7개의 정수 입력 \n");
+    for(; i<7; i++)
+    {
+        printf("입력 %d: ", i+1);
+        scanf("%d", &arr[i]);
+    }
+    
+    dessort(arr);
+    
+    return 0;
+}
