@@ -13,8 +13,8 @@ void swap(int ** d1, int ** d2)     //포인터 변수의 주소를 저장하는
     int * temp;     //일반 변수의 주소를 저장할 수 있는 포인터 변수 temp 선언
     
     temp=*d1;       //*d1은 num1의 주소값이다. 즉, 포인터 변수 temp에 num1의 주소가 저장된다.
-    *d1=*d2;        //*d1에 num2의 주소가 저장된다.
-    *d2=temp;       //*d2에 num1의 주소가 저장된다.
+    *d1=*d2;        //*d1(ptr2)에 num2의 주소가 저장된다.
+    *d2=temp;       //*d2(ptr1)에 num1의 주소가 저장된다.
 }
 
 int main(void)
