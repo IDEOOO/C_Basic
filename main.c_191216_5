@@ -1,0 +1,58 @@
+//
+//  main.c
+//  Re_Start
+//
+//  Created by super on 15/12/2019.
+//  Copyright © 2019 IDE. All rights reserved.
+//
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void)
+{
+    int sel, result, rannum;
+    int i=0, w=0, d=0, l=0;
+    char * arr[4]={"error", "가위", "바위", "보"};
+    char * res[4]={"error", "이겼습니다!", "비겼습니다.", "졌습니다."};
+    
+    do
+    {
+    first:
+        printf("1. 가위, 2. 바위, 3. 보 \n");
+        printf("%d번째 선택: ", i+1);
+        scanf("%d", &sel);
+        if(sel>3 || sel<0)
+            goto first;
+        printf("당신은 %s 선택, ", arr[sel]);
+        
+        srand((int)time(NULL));
+        rannum=(rand()%3)+1;
+        printf("컴퓨터는 %s 선택, ", arr[rannum]);
+        
+        {
+            if(sel==rannum+1 || sel==rannum-2)
+            {
+                result=1;
+                w++;
+            }
+            if(sel==rannum)
+            {
+                result=2;
+                d++;
+            }
+            if(sel==rannum-1 || sel==rannum+2)
+            {
+                result=3;
+                l++;
+            }
+        }
+        
+        printf("%s \n\n", res[result]);
+    }while(result!=3);
+    
+    printf("게임의 결과: %d승 %d무 %d패 \n", w, d, l);
+    
+    return 0;
+}
