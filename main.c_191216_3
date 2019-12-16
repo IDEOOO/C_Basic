@@ -1,0 +1,47 @@
+//
+//  main.c
+//  Re_Start
+//
+//  Created by super on 15/12/2019.
+//  Copyright © 2019 IDE. All rights reserved.
+//
+
+#include <stdio.h>
+
+void turnprint(int (*arr)[4], int arlen)
+{
+    int resarr[arlen][arlen];
+    int i, j;
+    
+    for(i=0; i<arlen; i++)
+        for(j=0; j<arlen; j++)
+            resarr[j][arlen-1-i]=arr[i][j];
+    
+    for(i=0; i<arlen; i++)
+    {
+        for(j=0; j<arlen; j++)
+        {
+            printf("%-2d ", resarr[i][j]);
+            arr[i][j]=resarr[i][j];
+        }
+        printf(" \n");
+    }
+    printf(" \n");
+}
+
+int main(void)
+{
+    int arr[4][4];
+    int arlen=sizeof(arr)/sizeof(arr[0]);
+    int n=1, i, j;
+    
+    for(i=0; i<arlen; i++)
+        for(j=0; j<arlen; j++)
+        {
+            arr[i][j]=n;
+            n++;
+        }
+    
+    for(i=0; i<4; i++)
+        turnprint(arr, arlen);
+}
