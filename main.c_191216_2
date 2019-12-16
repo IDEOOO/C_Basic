@@ -1,0 +1,44 @@
+//
+//  main.c
+//  Re_Start
+//
+//  Created by super on 15/12/2019.
+//  Copyright © 2019 IDE. All rights reserved.
+//
+
+#include <stdio.h>
+
+void maxandmin(int ** maxdp, int ** mindp, int *arr)
+{
+    *maxdp=*mindp=&arr[0];
+    
+    int i;
+    for(i=0; i<5; i++)
+    {
+        if(arr[i]>**maxdp)
+            *maxdp=&arr[i];
+        if(arr[i]<**mindp)
+            *mindp=&arr[i];
+    }
+}
+
+int main(void)
+{
+    int * maxptr;
+    int * minptr;
+    int arr[5];
+    int i;
+    
+    printf("총 5개의 정수 입력 \n");
+    for(i=0; i<5; i++)
+    {
+        printf("입력 %d: ", i+1);
+        scanf("%d", &arr[i]);
+    }
+    
+    maxandmin(&maxptr, &minptr, arr);
+    
+    printf("*maxptr: %d, *minptr: %d \n", *maxptr, *minptr);
+    
+    return 0;
+}
