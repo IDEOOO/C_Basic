@@ -1,0 +1,60 @@
+//
+//  main.c
+//  Re_Start
+//
+//  Created by super on 15/12/2019.
+//  Copyright © 2019 IDE. All rights reserved.
+//
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void strikeandballd(int sel[3], int ran[3], int * s, int * b)
+{
+    int i=0;
+       
+    for(i=0; i<3; i++)
+    {
+        if(sel[i]==ran[i])
+            *s+=1;
+        if(sel[i]==ran[i-1] || sel[i]==ran[i+1] || sel[i]==ran[i-2] || sel[i]==ran[i+2])
+            *b+=1;
+    }
+        
+}
+
+int main(void)
+{
+    int sel[3];
+    int ran[3];
+    int i=0, s=0, b;
+    
+    printf("strike-ball game \n<답으로 제시되는 세 개의 수는 모두 다름> \n<ex)\"1 2 3\"의 형태로 입력> \n");
+    
+    srand((int)time(NULL));
+label1:for(i=0; i<3; i++)
+        ran[i]=(rand()%10);
+    if(ran[0]==ran[1] || ran[1]==ran[2] || ran[0]==ran[2])
+        goto label1;
+    //printf("rannum: %d %d %d \n", ran[0], ran[1], ran[2]);
+    
+    for(i=0; s!=3; i++)
+    {
+    label2:printf("3개의 숫자 입력: ");
+        scanf("%d %d %d", &sel[0], &sel[1], &sel[2]);
+        if(sel[0]==sel[1] || sel[1]==sel[2] || sel[0]==sel[2])
+        {
+            printf("입력하는 수는 모두 달라야 함. \n");
+            goto label2;
+        }
+        s=0; b=0;
+        strikeandballd(sel, ran, &s, &b);
+        if(s==3)
+            b=0;
+        printf("%d번째 도전 결과: %dstrike, %dball \n\n", i+1, s, b);
+    }
+    printf("%d번만에 성공!", i);
+    
+    return 0;
+}
