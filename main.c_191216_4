@@ -1,0 +1,49 @@
+//
+//  main.c
+//  Re_Start
+//
+//  Created by super on 15/12/2019.
+//  Copyright © 2019 IDE. All rights reserved.
+//
+
+#include <stdio.h>
+
+int main(void)
+{
+    int num;
+    
+    printf("insert whole num: ");
+    scanf("%d", &num);
+    
+    int arlen=num;
+    int arr[arlen][arlen];
+    int i=0, j=0, o=0, k=1;
+    
+    for(o=0; o<num-1; o++)
+        arr[i][j++]=k++;
+    for(o=0; o<num-1; o++)
+        arr[i++][j]=k++;
+    for(o=0; o<num-1; o++)
+        arr[i][j--]=k++;
+    
+    for(; num>2; num-=2)
+    {
+        for(o=0; o<num-2; o++)
+            arr[i--][j]=k++;
+        for(o=0; o<num-2; o++)
+            arr[i][j++]=k++;
+        
+        for(o=0; o<num-3; o++)
+            arr[i++][j]=k++;
+        for(o=0; o<num-3; o++)
+            arr[i][j--]=k++;
+    }
+    arr[i][j]=k;
+    
+    for(i=0; i<arlen; i++)
+    {
+        for(j=0; j<arlen; j++)
+            printf("%-2d ", arr[i][j]);
+        printf(" \n");
+    }
+}
