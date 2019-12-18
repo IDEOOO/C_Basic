@@ -1,0 +1,62 @@
+//
+//  main.c
+//  Re_Start
+//
+//  Created by super on 15/12/2019.
+//  Copyright © 2019 IDE. All rights reserved.
+//
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
+
+int main(void)
+{
+    char str1[20], name1[20], age1[20];
+    char str2[20], name2[20], age2[20];
+    int bp1, bp2;
+    int i;
+    
+    printf("\"이름 나이\"\n\"홍길동 19\"의 형식으로 입력 \n");
+    printf("정보 입력1: ");
+    fgets(str1, sizeof(str1), stdin);
+    
+    for(i=0; i<strlen(str1); i++)
+        if(str1[i]==' ')
+            bp1=i;
+    
+    strncpy(name1, str1, bp1);
+    
+    for(i=0; str1[bp1+1+i]!=0; i++)
+        age1[i]=str1[bp1+1+i];
+    age1[strlen(age1)-1]=0;
+    
+    printf("정보 입력2: ");
+    fgets(str2, sizeof(str2), stdin);
+    
+    for(i=0; i<strlen(str2); i++)
+        if(str2[i]==' ')
+            bp2=i;
+    
+    strncpy(name2, str2, bp2);
+    
+    for(i=0; str2[bp2+1+i]!=0; i++)
+        age2[i]=str2[bp2+1+i];
+    age2[strlen(age2)-1]=0;
+    
+    {
+        if(strcmp(name1, name2)==0)
+            printf("두 사람의 이름은 같습니다. \n");
+        else
+            printf("두 사람의 이름은 다릅니다. \n");
+    }
+    {
+        if(strcmp(age1, age2)==0)
+            printf("두 사람의 나이는 같습니다. \n");
+        else
+            printf("두 사람의 나이는 다릅니다. \n");
+    }
+    
+    return 0;
+}
