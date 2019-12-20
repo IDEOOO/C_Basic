@@ -1,0 +1,41 @@
+//
+//  main.c
+//  Re_Start
+//
+//  Created by super on 20/12/2019.
+//  Copyright © 2019 IDE. All rights reserved.
+//
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
+#include <math.h>
+
+int main(void)
+{
+    int * arr;
+    arr=(void *) malloc(sizeof(int)*5);
+    
+    printf("insert -1 to quit \n");
+    
+    int i=-1, arlen=5;
+    do
+    {
+        i++;
+        printf("arr[%d]= ", i);
+        scanf("%d", &arr[i]);
+        if(arlen==i+1)
+        {
+            arlen+=3;
+            arr=(int *) realloc(arr, sizeof(*arr)+3);
+        }
+    } while(arr[i]!=-1);
+    
+    int resultlen=i;
+    for(i=0; i<resultlen; i++)
+        printf("%d ", arr[i]);
+    printf(" \n");
+    
+    return 0;
+}
