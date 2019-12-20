@@ -1,0 +1,46 @@
+//
+//  main.c
+//  Re_Start
+//
+//  Created by super on 20/12/2019.
+//  Copyright © 2019 IDE. All rights reserved.
+//
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
+#include <math.h>
+
+typedef struct point
+{
+    int xpos;
+    int ypos;
+} Point;
+
+typedef struct
+{
+    Point dot1;
+    Point dot2;
+} Rectangle;
+
+void areaprint(Rectangle rec)
+{
+    int area;
+    area=(rec.dot2.xpos-rec.dot1.xpos)*(rec.dot2.ypos-rec.dot1.ypos);
+    printf("area: %d \n", area);
+}
+
+void positionprint(Rectangle rec)
+{
+    printf("[%d, %d], [%d, %d], [%d, %d], [%d, %d] \n", rec.dot1.xpos, rec.dot1.ypos, rec.dot1.xpos, rec.dot2.ypos, rec.dot2.xpos, rec.dot2.ypos, rec.dot2.xpos, rec.dot1.ypos);
+}
+
+int main(void)
+{
+    Rectangle rec={{0, 0}, {100, 100}};
+    positionprint(rec);
+    areaprint(rec);
+    
+    return 0;
+}
